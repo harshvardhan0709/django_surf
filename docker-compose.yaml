@@ -1,0 +1,24 @@
+version: "3.8"
+
+services:
+    pgdb:
+        image: postgres
+        container_name: pgdb
+        environment:
+            - POSTGRES_DB=surf_django
+            - POSTGRES_USER=postgres
+            - POSTGRES_PASSWORD=root
+
+    django:
+        build: .
+        container_name: django
+        command: sh -c "python src/manage.py migrate && python src/manage.py runserver 0.0.0.0:8000"
+        volumes:
+            - .:/app/src
+        ports:
+            - "8000:8000"
+        depends_on:
+            - pgdb
+    
+
+    
