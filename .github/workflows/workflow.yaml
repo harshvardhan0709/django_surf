@@ -53,5 +53,5 @@ jobs:
           POSTGRES_PORT: 5432
 
       - name: Django Testing
-        run: python src/manage.py test
+        run: python src/manage.py test src/
         
