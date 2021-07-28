@@ -23,27 +23,27 @@ Command:
 
 
 
-1. First Step Is to create new User 
+##### 1. First Step Is to create new User 
 
-Api call - http://localhost:8000/api/register/ 
-method - POST
-body = {
-    "username" : "username_value",
-    "password" : "user_password",
-    "email" : "user_email"
+Api call - http://localhost:8000/api/register/  <br/>
+method - POST <br/>
+body = { <br/>
+    "username" : "username_value", <br/>
+    "password" : "user_password", <br/>
+    "email" : "user_email" <br/>
 }
 
 ![](img/1.png)
 
 
 
-2. Generating Token for API authentication
+##### 2. Generating Token for API authentication
 
-Api call - http://localhost:8000/api-token-auth/
-method - POST
-body = {
-    "username" : "username_value",
-    "password" : "user_password",
+Api call - http://localhost:8000/api-token-auth/ <br/>
+method - POST <br/>
+body = { <br/>
+    "username" : "username_value", <br/>
+    "password" : "user_password", <br/>
 } 
 
 Output - Token 
@@ -52,14 +52,14 @@ Output - Token
 
 
 
-3. Create Course
+##### 3. Create New Course
 
-Api call - http://localhost:8000/api/course/course-create/
-method - POST
-header = { "Authorization": "Token token_from_above_step"}
-body = {
-    "name" : "Database",
-    "information" : "some information",
+Api call - http://localhost:8000/api/course/course-create/ <br/>
+method - POST <br/>
+header = { "Authorization": "Token token_from_above_step"} <br/>
+body = { <br/>
+    "name" : "Database", <br/>
+    "information" : "some information", <br/>
 } 
 
 ![](img/3.png)
