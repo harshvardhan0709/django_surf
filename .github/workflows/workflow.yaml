@@ -52,11 +52,6 @@ jobs:
           # The default PostgreSQL port
           POSTGRES_PORT: 5432
 
-      - name: Lint with flake8
-        run: |
-          pip install flake8
-          flake8
-
       - name: Django Testing
         run: python src/manage.py test
         
