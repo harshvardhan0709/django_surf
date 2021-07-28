@@ -32,7 +32,8 @@ body = {
     "password" : "user_password",
     "email" : "user_email"
 }
-![] (img/1.png)
+
+![](img/1.png)
 
 
 
@@ -46,7 +47,8 @@ body = {
 } 
 
 Output - Token 
-![] (img/2.png)
+
+![](img/2.png)
 
 
 
@@ -59,6 +61,7 @@ body = {
     "name" : "Database",
     "information" : "some information",
 } 
-![] (img/3.png)
+
+![](img/3.png)
 
 
