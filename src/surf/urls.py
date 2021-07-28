@@ -18,12 +18,14 @@ from django.urls import include,path
 from rest_framework.authtoken.views import obtain_auth_token
 from students.views import UserViewSet
 from rest_framework.routers import DefaultRouter
+from students.views import RegisterAPI
 
 router = DefaultRouter()
 router.register(r'api/users', UserViewSet, basename='user')
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('api/register/', RegisterAPI.as_view(), name='register'),
     path('api/course/', include('courses.urls')),
     path('api/student/', include('students.urls')),
     path('api/', include('rest_framework.urls', namespace='rest_framework')),

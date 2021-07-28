@@ -21,7 +21,7 @@ def courseList(request):
 def courseDetail(request,pk):
     data={}
     try:
-        course = Course.objects.get(name=pk)
+        course = Course.objects.get(course_id=pk)
         serializer = CourseSerializer(course, many=False)
         return Response(serializer.data)
     except:
@@ -44,7 +44,7 @@ def courseCreate(request):
 def courseUpdate(request,pk):
     data={}
     try:
-        course = Course.objects.get(name=pk)
+        course = Course.objects.get(course_id=pk)
         serializer = CourseSerializer(instance=course ,data=request.data)
         if serializer.is_valid():
             serializer.save()
@@ -62,7 +62,7 @@ def courseUpdate(request,pk):
 def courseDelete(request,pk):
     data = {}
     try:
-        course = Course.objects.get(name=pk)
+        course = Course.objects.get(course_id=pk)
         course.delete()
         return Response('Item Succesfully delete!')
     except:
@@ -74,7 +74,7 @@ def courseDelete(request,pk):
 def courseStudentList(request,pk):
     data = {}  
     try:
-        course = Course.objects.get(name=pk)
+        course = Course.objects.get(course_id=pk)
         print(course)
         students = course.students
         print(students)
@@ -86,7 +86,7 @@ def courseStudentList(request,pk):
 
 @api_view(['POST'])
 def courseStudentAdd(request,pk):  
-    course = Course.objects.get(name=pk)
+    course = Course.objects.get(course_id=pk)
     student = course.students.add(request.data["student"])
     course.save()
     serializer = CourseSerializer(course, many=False)
@@ -94,7 +94,7 @@ def courseStudentAdd(request,pk):
 
 @api_view(['DELETE'])
 def courseStudentDelete(request,pk,student_id):  
-    course = Course.objects.get(name=pk)
+    course = Course.objects.get(course_id=pk)
     student = course.students.remove(student_id)
     course.save()
     serializer = CourseSerializer(course, many=False)
